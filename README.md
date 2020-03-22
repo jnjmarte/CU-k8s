@@ -1,4 +1,5 @@
 # Despliegue de un cluster de Kubernetes 1.16 sobre CentOS 7 usando Vagrant y VirtualBox
+*Proyecto creado para la asignatura **Computación ubícua, móvil y en la nube** del Grado en Tecnologías para la Sociedad de la Información de la ETSISI de la UPM.*
 
 ## Requisitos
 * **VirtualBox** - Probado con la versión 6.1
@@ -39,7 +40,7 @@ El detalle de las MVs que se instalarán es:
 ### Clonar el proyecto y crear la infraestructura
 ```
 git clone https://github.com/fmaderuelo/CU-k8s.git
-cd KU-k8s
+cd CU-k8s
 vagrant up
 ```
 
