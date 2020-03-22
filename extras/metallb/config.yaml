@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: production-ip-pool
+      protocol: layer2
+      addresses:
+      - 192.168.61.30-192.168.61.50
+      avoid-buggy-ips: true
+      auto-assign: true
+
