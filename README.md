@@ -24,7 +24,6 @@ El detalle de las MVs que se instalarán es:
         * sda: 40 Gb
         * sdb: 20 Gb
 
-> Nota: *El almacenamiento se asigna dinámicamente, así que no se ocupará inicialmente todo ese espacio en disco.*
 
 ## Diagrama
 
@@ -33,6 +32,7 @@ El detalle de las MVs que se instalarán es:
 
 ## Notas
 
+* El almacenamiento se asigna dinámicamente, así que no se ocupará inicialmente todo ese espacio en disco.
 * Es necesario que los hostnames se resuelvan por un servidor DNS. Ya que es un entorno de pruebas, en vez de configurar uno con la complejidad que añadiría, usaremos [xip.io](http://xip.io) de Basecamp que nos proporcionará funcionalidad wildcard DNS para nuestro entorno.
 
 ## Instalación
