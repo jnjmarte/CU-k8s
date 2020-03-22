@@ -25,3 +25,7 @@ El detalle de las MVs que se instalarán es:
         * sdb: 20 Gb
 
 > Nota: *El almacenamiento se asigna dinámicamente, así que no se ocupará inicialmente todo ese espacio en disco.*
+
+![GitHub Logo](/images/Entorno.png)
+
+
