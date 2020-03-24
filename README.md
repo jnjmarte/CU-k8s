@@ -1,5 +1,5 @@
 # Despliegue de un cluster de Kubernetes 1.16 sobre CentOS 7 usando Vagrant y VirtualBox
->Proyecto creado para la asignatura **Computación ubícua, móvil y en la nube** del Grado en Tecnologías para la Sociedad de la Información de la ETSISI de la UPM.
+>Proyecto creado para la asignatura **Computación ubicua, móvil y en la nube** del Grado en Tecnologías para la Sociedad de la Información de la ETSISI de la UPM.
 
 ## Requisitos
 * **VirtualBox** - Probado con la versión 6.1
