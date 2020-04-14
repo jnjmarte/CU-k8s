@@ -34,9 +34,3 @@
     path: /root/kubespray/inventory/mycluster/group_vars/all/docker.yml
     regexp: '^# docker_storage_options: -s overlay2'
     line: 'docker_storage_options: -s overlay2'
-
-- name: Modify installation for iptables instead o ipvs
-  lineinfile:
-    path: /root/kubespray/inventory/mycluster/group_vars/k8s-cluster/k8s-cluster.yml
-    regexp: 'kube_proxy_mode: ipvs'
-    line: 'kube_proxy_mode: iptables'
