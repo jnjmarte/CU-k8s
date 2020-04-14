@@ -26,7 +26,6 @@
   
 - name: Open up firewall ports
   firewalld:
-    masquerade: yes
     permanent: yes
     immediate: yes
     state: enabled
@@ -50,3 +49,11 @@
       - 179/tcp
       - 4789/udp
       - 5473/tcp
+
+- name: Setup masquerade on public zone of firewalld
+  firewalld:
+    masquerade: yes
+    state: enabled
+    permanent: yes
+    immediate: yes
+    zone: public
