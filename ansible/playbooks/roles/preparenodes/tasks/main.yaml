@@ -11,3 +11,42 @@
 
 - name: net.ipv4.ip_forward=1
   shell: sysctl -w net.ipv4.ip_forward=1
+
+- name: Starting firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+    masked: no
+    daemon_reload: yes  
+
+- name: Pause to ensure firewalld starts correctly
+  pause:
+    seconds: 10
+  
+- name: Open up firewall ports
+  firewalld:
+    masquerade: yes
+    permanent: yes
+    immediate: yes
+    state: enabled
+    port: "{{ item }}"
+  with_items:
+      - 6443/tcp
+      - 2379-2380/tcp
+      - 443/tcp
+      - 10250/tcp
+      - 10251/tcp
+      - 10252/tcp
+      - 10255/tcp
+      - 6783/tcp
+      - 30000-32767/tcp
+      - 8472/udp
+      - 2222/tcp
+      - 24007/tcp
+      - 24008/tcp
+      - 49152-49251/tcp
+      - 8080/tcp
+      - 179/tcp
+      - 4789/udp
+      - 5473/tcp
