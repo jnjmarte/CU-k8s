@@ -12,6 +12,10 @@ mv /tmp/ansible.cfg /etc/ansible
 mv /tmp/ansible/ /root/kubespray_installation/
 mv /tmp/kubernetes.repo /etc/yum.repos.d/kubernetes.repo
 mv /tmp/postinstall.sh /opt/postinstall.sh
+mv /tmp/metallb-config.yaml /opt/metallb-config.yaml
+mv /tmp/metallb-install.sh /opt/metallb-install.sh
+mv /tmp/nginx-svc.yaml /opt/nginx-svc.yaml
+mv 
 ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
