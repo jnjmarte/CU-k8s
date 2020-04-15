@@ -99,7 +99,7 @@ kubectl create deployment nginx --image=nginx
 ```
 Y después crearemos un servicio del tipo LoadBalancer para exponerlo fuera del cluster usando el fichero **/opt/nginx-svc.yaml**:
 ```
-kubectl -f /opt/nginx-svc.yaml
+kubectl apply -f /opt/nginx-svc.yaml
 ```
 Por último podemos escalar el servidor web para ver que los pods se distribuyen por el resto de workers, obteniendo así alta disponibilidad:
 ```
