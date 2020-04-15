@@ -24,16 +24,17 @@
   pause:
     seconds: 10
   
-- name: Open up firewall ports
+- name: Open up firewalld ports
   firewalld:
     permanent: yes
     immediate: yes
     state: enabled
     port: "{{ item }}"
   with_items:
+      - 80/tcp
+      - 443/tcp
       - 6443/tcp
       - 2379-2380/tcp
-      - 443/tcp
       - 10250/tcp
       - 10251/tcp
       - 10252/tcp
