@@ -89,6 +89,9 @@ Vagrant.configure("2") do |config|
       bastion.vm.provision "file", source: "./bastion/hostnames.txt", destination: "/tmp/hostnames.txt"
       bastion.vm.provision "file", source: "./bastion/kubernetes.repo", destination: "/tmp/kubernetes.repo"
       bastion.vm.provision "file", source: "./bastion/postinstall.sh", destination: "/tmp/postinstall.sh"
+      bastion.vm.provision "file", source: "./extras/metallb-config.yaml", destination: "/tmp/metallb-config.yaml"
+      bastion.vm.provision "file", source: "./extras/nginx-svc.yaml", destination: "/tmp/nginx-svc.yaml"
+      bastion.vm.provision "file", source: "./extras/metallb-install.sh", destination: "/tmp/metallb-install.sh"
       bastion.vm.provision "file", source: "./ansible", destination: "/tmp/"
       bastion.vm.provision "shell", path: "./bastion/configbastion.sh"
       bastion.vm.provider "virtualbox" do |v|
