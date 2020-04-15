@@ -31,7 +31,7 @@ El detalle de las MVs que se instalarán es:
 
 ## Diagrama
 
-![GitHub Logo](/images/Entorno.png)
+![Diagrama](/images/Entorno.png)
 
 
 ## Notas
@@ -61,6 +61,10 @@ cd /root/kubespray/
 pip install --user -r requirements.txt
 ansible-playbook -i /root/kubespray/inventory/mycluster/inventory.ini cluster.yml
 ```
+Si todo ha ido bien el resultado será parecido a esto:
+
+![Resultado](/images/Kubespray_OK.png)
+
 ### Configurar nuestro usuario para usar kubectl y alias
 Por defecto el usuario configurado es **vagrant** con password **vagrant**. Podemos usar ese o crear uno propio y modificar o borrar el anterior.
 Para poder usar el comando **kubectl** y el alias **kc** correctamente con nuestro usuario ejecutamos el siguiente script desde una shell del usuario a configurar (necesitará permiso para usar *sudo*):
@@ -77,3 +81,29 @@ kubectl get nodes
 kc get pods --all-namespaces
 kc cluster-info
 ```
+
+### Instalar y configurar MetalLB
+Kubernetes solo provee de implementaciones de Network Load Balancer para varias plataformas cloud IaaS (como AWS, GCP o Azure), así que vamos a usar [MetalLB](https://metallb.universe.tf) para emular via software esta funcionalidad y poder crear servicios de Kubernetes del tipo "LoadBalancer" y exponerlos fuera del cluster para permitir tráfico del exterior hacia los nodos worker.
+
+Para instalarlo y configurarlo podemos usar el siguiente script:
+```
+sh /opt/metallb-install.sh
+```
+O podemos editar antes el fichero **/opt/metallb-config.yaml** para configurarlo a nuestro gusto
+
+### Desplegar un servidor web NGINX
+
+Para desplegar un servidor web [NGINX](https://www.nginx.com/) en nuestro cluster podemos hacerlo así:
+```
+kubectl create deployment nginx --image=nginx
+```
+Y después crearemos un servicio del tipo LoadBalancer para exponerlo fuera del cluster usando el fichero **/opt/nginx-svc.yaml**:
+```
+kubectl -f /opt/nginx-svc.yaml
+```
+Por último podemos escalar el servidor web para ver que los pods se distribuyen por el resto de workers, obteniendo así alta disponibilidad:
+```
+kubectl scale deployment nginx --replicas=3
+```
+
+
